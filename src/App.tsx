@@ -34,7 +34,7 @@ function App() {
   const [showSecret, setShowSecret] = useState(false)
   const [stars, setStars] = useState<Star[]>([])
   const [confetti, setConfetti] = useState<Confetti[]>([])
-  
+
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8])
@@ -68,11 +68,11 @@ function App() {
   }
 
   const popBalloon = (id: number) => {
-    setBalloons(prev => prev.map(b => 
+    setBalloons(prev => prev.map(b =>
       b.id === id ? { ...b, popped: true } : b
     ))
     setScore(prev => prev + 1)
-    
+
     const balloon = balloons.find(b => b.id === id)
     if (balloon) {
       const newConfetti = Array.from({ length: 8 }, (_, i) => ({
@@ -98,7 +98,7 @@ function App() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, #581c87, #9d174d, #881337)', overflowX: 'hidden' }}>
-      
+
       {/* Stars Background */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
         {stars.map((star) => (
@@ -127,7 +127,7 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         style={{ opacity, scale, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}
       >
         {/* Floating particles */}
@@ -166,19 +166,19 @@ function App() {
           >
             <motion.div
               style={{ fontSize: '6rem', marginBottom: '1.5rem' }}
-              animate={{ 
+              animate={{
                 rotate: [0, 10, -10, 0],
                 scale: [1, 1.1, 1]
               }}
-              transition={{ 
+              transition={{
                 duration: 3,
-                repeat: Infinity 
+                repeat: Infinity
               }}
             >
               🎉
             </motion.div>
           </motion.div>
-          
+
           <motion.h2
             style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 800, color: 'white', marginBottom: '2rem', letterSpacing: '-0.02em' }}
             initial={{ opacity: 0, y: 50 }}
@@ -194,7 +194,7 @@ function App() {
             transition={{ delay: 0.9, type: "spring", duration: 1 }}
             style={{ marginBottom: '2rem' }}
           >
-            <motion.h3 
+            <motion.h3
               style={{
                 fontSize: 'clamp(4rem, 12vw, 7rem)',
                 fontWeight: 'bold',
@@ -237,7 +237,7 @@ function App() {
               </motion.span>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -279,28 +279,24 @@ function App() {
           </motion.h2>
 
           {[
-            { 
-              text: "Today we celebrate YOU and all the joy you bring to the world",
-              icon: "🌟",
-              delay: 0 
-            },
-            { 
-              text: "Another year of amazing memories, beautiful moments, and endless possibilities",
+
+            {
+              text: "Another year of precious memories, countless blessings, and dreams waiting to unfold",
               icon: "🎈",
-              delay: 0.2 
-            },
-            { 
-              text: "May this year bring you happiness that lasts, dreams that come true, and love that grows",
-              icon: "💝",
-              delay: 0.4 
-            },
-            { 
-              text: "Here's to new adventures, wonderful surprises, and making every moment count",
-              icon: "🎊",
-              delay: 0.6 
+              delay: 0.2
             },
             {
-              text: "Because someone as wonderful as you deserves the best today and always!",
+              text: "May this year bring you success in all you do, peace in your heart, and joy that never fades",
+              icon: "💝",
+              delay: 0.4
+            },
+            {
+              text: "Here's to new adventures, genuine smiles, and moments that take your breath away",
+              icon: "🎊",
+              delay: 0.6
+            },
+            {
+              text: "May Allah bless you with happiness, health, and everything your heart desires",
               icon: "✨",
               delay: 0.8
             }
@@ -313,7 +309,7 @@ function App() {
               transition={{ delay: wish.delay, duration: 0.8 }}
               style={{ marginBottom: '3rem' }}
             >
-              <motion.div 
+              <motion.div
                 style={{
                   background: 'linear-gradient(to bottom right, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2))',
                   backdropFilter: 'blur(12px)',
@@ -325,15 +321,15 @@ function App() {
                 whileHover={{ scale: 1.02 }}
               >
                 <div style={{ display: 'flex', alignItems: 'start', gap: '1.5rem' }}>
-                  <motion.div 
+                  <motion.div
                     style={{ fontSize: 'clamp(3rem, 6vw, 4rem)' }}
-                    animate={{ 
+                    animate={{
                       rotate: [0, 10, -10, 0],
                       scale: [1, 1.1, 1]
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 3,
-                      repeat: Infinity 
+                      repeat: Infinity
                     }}
                   >
                     {wish.icon}
@@ -378,24 +374,24 @@ function App() {
               </motion.div>
 
               <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                <motion.p 
+                <motion.p
                   style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', color: 'white', lineHeight: 1.6, fontWeight: 300 }}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  "Count your age by friends, not years.
+                  "Celebrate every moment,
                 </motion.p>
-                <motion.p 
+                <motion.p
                   style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', color: 'white', lineHeight: 1.6, fontWeight: 300 }}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  Count your life by smiles, not tears."
+                  cherish every memory."
                 </motion.p>
                 <div style={{ paddingTop: '2rem', borderTop: '1px solid rgba(244, 114, 182, 0.3)' }}>
-                  <motion.p 
+                  <motion.p
                     style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', color: '#fbcfe8', lineHeight: 1.6, fontStyle: 'italic' }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -465,7 +461,7 @@ function App() {
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
           }}>
             {!gameStarted && !gameComplete && (
-              <motion.div 
+              <motion.div
                 style={{ textAlign: 'center', padding: '3rem 0' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -610,27 +606,27 @@ function App() {
                           top: `${balloon.y}%`
                         }}
                         initial={{ scale: 0, rotate: 0, y: 100 }}
-                        animate={{ 
+                        animate={{
                           scale: 1,
                           rotate: [0, 10, -10, 0],
                           y: [0, -15, 0]
                         }}
-                        exit={{ 
+                        exit={{
                           scale: 0,
                           rotate: 360,
                           opacity: 0,
                           y: -50
                         }}
                         transition={{
-    rotate: { repeat: Infinity, duration: 2.5 },
-    y: { repeat: Infinity, duration: 2.5 }
-  }}
+                          rotate: { repeat: Infinity, duration: 2.5 },
+                          y: { repeat: Infinity, duration: 2.5 }
+                        }}
                         onClick={() => popBalloon(balloon.id)}
                         whileHover={{ scale: 1.3, rotate: 20 }}
                         whileTap={{ scale: 0.8 }}
                       >
-                        <div 
-                          style={{ 
+                        <div
+                          style={{
                             position: 'relative',
                             width: '5rem',
                             height: '7rem',
@@ -672,7 +668,7 @@ function App() {
                 style={{ textAlign: 'center', padding: '3rem 0' }}
               >
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [0, 10, -10, 0],
                     scale: [1, 1.2, 1]
                   }}
@@ -713,7 +709,7 @@ function App() {
       {/* Secret Funny Message Section */}
       <AnimatePresence>
         {showSecret && (
-          <motion.section 
+          <motion.section
             style={{
               minHeight: '100vh',
               padding: '5rem 1.5rem',
@@ -762,7 +758,7 @@ function App() {
                 transition={{ type: "spring", duration: 2 }}
                 style={{ marginBottom: '3rem' }}
               >
-                <motion.div 
+                <motion.div
                   style={{ fontSize: '7rem', marginBottom: '2rem' }}
                   animate={{ rotate: [0, 15, -15, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -828,7 +824,7 @@ function App() {
                     🎂
                   </motion.div>
 
-                  <motion.p 
+                  <motion.p
                     style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', color: 'white', lineHeight: 1.6, fontWeight: 300 }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -836,8 +832,8 @@ function App() {
                   >
                     "Congratulations! You're now officially...
                   </motion.p>
-                  
-                  <motion.p 
+
+                  <motion.p
                     style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#fde047', fontWeight: 'bold' }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -964,7 +960,7 @@ function App() {
             </div>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', fontWeight: 'bold', color: 'white', marginBottom: '2rem' }}
             animate={{
               textShadow: [
@@ -979,7 +975,7 @@ function App() {
           >
             HAPPY BIRTHDAY
           </motion.h2>
-          
+
           <motion.h3
             style={{
               fontSize: 'clamp(4rem, 10vw, 7rem)',
@@ -1004,32 +1000,32 @@ function App() {
           </motion.h3>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2.5rem', fontSize: '4rem' }}>
-            <motion.span 
-              animate={{ rotate: 360 }} 
+            <motion.span
+              animate={{ rotate: 360 }}
               transition={{ duration: 4, repeat: Infinity }}
             >
               🌙
             </motion.span>
-            <motion.span 
-              animate={{ scale: [1, 1.4, 1] }} 
+            <motion.span
+              animate={{ scale: [1, 1.4, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               ✨
             </motion.span>
-            <motion.span 
-              animate={{ rotate: 360, scale: [1, 1.2, 1] }} 
+            <motion.span
+              animate={{ rotate: 360, scale: [1, 1.2, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               ☪️
             </motion.span>
-            <motion.span 
-              animate={{ scale: [1, 1.4, 1] }} 
+            <motion.span
+              animate={{ scale: [1, 1.4, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
             >
               ✨
             </motion.span>
-            <motion.span 
-              animate={{ rotate: -360 }} 
+            <motion.span
+              animate={{ rotate: -360 }}
               transition={{ duration: 4, repeat: Infinity }}
             >
               🌙
@@ -1052,16 +1048,16 @@ function App() {
               Wishing you a year filled with joy, success, and beautiful moments! 🌟
             </p>
           </motion.div>
-          
+
           <motion.div
             style={{ marginTop: '4rem', fontSize: '7rem' }}
-            animate={{ 
+            animate={{
               scale: [1, 1.3, 1],
               rotate: [0, 10, -10, 0]
             }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity 
+            transition={{
+              duration: 2,
+              repeat: Infinity
             }}
           >
             🎈
@@ -1074,7 +1070,7 @@ function App() {
             style={{ marginTop: '4rem' }}
           >
             <p style={{ color: '#f9a8d4', fontSize: '1.5rem', fontWeight: 300, fontStyle: 'italic' }}>
-              ✨ Created with love & celebration ✨
+              ✨ Created with love & celebration ✨ <br /> <span style={{ color: '#f9a8d4', fontSize: '1 rem', fontWeight: 300, fontStyle: 'italic' }}>by zubair</span>
             </p>
           </motion.div>
         </motion.div>
