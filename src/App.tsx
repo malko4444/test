@@ -622,10 +622,9 @@ function App() {
                           y: -50
                         }}
                         transition={{
-                          rotate: { repeat: Infinity, duration: 2.5 },
-                          y: { repeat: Infinity, duration: 2.5 },
-                          exit: { duration: 0.3 }
-                        }}
+    rotate: { repeat: Infinity, duration: 2.5 },
+    y: { repeat: Infinity, duration: 2.5 }
+  }}
                         onClick={() => popBalloon(balloon.id)}
                         whileHover={{ scale: 1.3, rotate: 20 }}
                         whileTap={{ scale: 0.8 }}
